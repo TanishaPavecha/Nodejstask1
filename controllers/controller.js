@@ -7,6 +7,7 @@ const signUpUser = asyncHandler(async (req, res) => {
   const { firstname, lastname, email, password } = req.body;
   if (!email || !firstname || !lastname || !password) {
     res.status(400);
+    console.log("error");    
     throw new Error("All fields required");
   }
   const userAvailable = await User.findOne({ email });
